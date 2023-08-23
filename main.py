@@ -1,5 +1,6 @@
 import pygame
 import sys
+import quiz
 
 # Initialize Pygame
 pygame.init()
@@ -13,8 +14,8 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GRAY = (200, 200, 200)
 
-# Load background image (replace with your image path)
-background_image = pygame.image.load("background.jpg")  # Add your image path here
+# Load background image
+background_image = pygame.image.load("background.jpg") 
 
 # Create font
 font = pygame.font.Font(None, 36)
@@ -55,11 +56,11 @@ def submenu():
                 sys.exit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if singleplayer_button_rect.collidepoint(event.pos):
-                    print("Singleplayer selected")
-                elif multiplayer_button_rect.collidepoint(event.pos):
+                    quiz.start_quiz()  # Start the quiz from the quiz module                elif multiplayer_button_rect.collidepoint(event.pos):
                     print("Multiplayer selected")
                 elif options_button_rect.collidepoint(event.pos):
                     print("Options selected")
+                
 
         screen.fill(WHITE)
         screen.blit(background_image, (0, 0))  # Draw background image
